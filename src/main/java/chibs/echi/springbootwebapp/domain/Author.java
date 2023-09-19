@@ -2,13 +2,18 @@ package chibs.echi.springbootwebapp.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Entity
+@ToString
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,7 +22,6 @@ public class Author {
     private String lastName;
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books = new HashSet<>();
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
